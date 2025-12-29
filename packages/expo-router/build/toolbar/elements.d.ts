@@ -297,7 +297,9 @@ export interface ToolbarSearchBarProps extends SearchBarProps {
  * A search bar component for the toolbar.
  * It should only be used as a child of `Toolbar`.
  *
- * > **Note**: Once Toolbar.SearchBar is used, the header search bar cannot be used for that screen.
+ * > **Note**: The stack header must be visible in order to add a search bar.
+ * > Once `Toolbar.SearchBar` is used, the search bar will no longer be available
+ * > in this screen’s header.
  *
  * @example
  * ```tsx
@@ -308,7 +310,7 @@ export interface ToolbarSearchBarProps extends SearchBarProps {
  * </Toolbar>
  * ```
  *
- * @see [Apple documentation](https://developer.apple.com/documentation/uikit/uinavigationitem/searchbarplacementbarbuttonitem) for more information.
+ * @see [React Native Screens SearchBarProps](https://github.com/software-mansion/react-native-screens/blob/main/src/types.tsx#L822) for more information about available props.
  *
  * @platform ios 26+
  */
