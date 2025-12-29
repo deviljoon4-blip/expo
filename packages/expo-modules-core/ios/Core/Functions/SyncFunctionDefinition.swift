@@ -1,5 +1,7 @@
 // Copyright 2022-present 650 Industries. All rights reserved.
 
+import ExpoModulesJSI
+
 /**
  Type-erased protocol for synchronous functions.
  */
@@ -148,6 +150,12 @@ public class SyncFunctionDefinition<Args, FirstArgType, ReturnType>: AnySyncFunc
     // immediately lose the reference to the definition and thus the underlying native function.
     // It may potentially cause memory leaks, but at the time of writing this comment,
     // the native definition instance deallocates correctly when the JS VM triggers the garbage collector.
+//    return try appContext.sxxRuntime.createSyncFunction(name) { this, arguments in
+//      guard let appContext else {
+//        throw Exceptions.AppContextLost()
+//      }
+//      return try self.call(appContext, withThis: this, arguments: arguments)
+//    }
     return try appContext.runtime.createSyncFunction(name, argsCount: argumentsCount) { [weak appContext, self] this, arguments in
       guard let appContext else {
         throw Exceptions.AppContextLost()

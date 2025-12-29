@@ -4,7 +4,7 @@
 #import <ExpoModulesJSI/EXJavaScriptRuntime.h>
 
 #ifdef __cplusplus
-#import <jsi/jsi.h>
+#import "jsi.h"
 
 namespace jsi = facebook::jsi;
 #endif // __cplusplus
