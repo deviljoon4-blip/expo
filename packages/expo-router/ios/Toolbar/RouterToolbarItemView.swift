@@ -58,7 +58,7 @@ class RouterToolbarItemView: RouterViewWithLogger {
       }
       guard navController.isNavigationBarHidden == false else {
         logger?.warn(
-          "[expo-router] Toolbar.SearchBar can only be used when stack header is shown."
+          "[expo-router] Toolbar.SearchBarPlacement should only be used when stack header is shown."
         )
         return item
       }
