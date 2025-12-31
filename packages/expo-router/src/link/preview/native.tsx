@@ -114,6 +114,12 @@ export function NativeLinkPreviewContent(props: NativeLinkPreviewContentProps) {
 // #endregion
 
 // #region Zoom transition enabler
+interface DismissalBoundsRect {
+  minX?: number;
+  maxX?: number;
+  minY?: number;
+  maxY?: number;
+}
 const LinkZoomTransitionEnablerNativeView: React.ComponentType<
   ViewProps & { zoomTransitionSourceIdentifier: string; disableForceFlatten?: boolean }
 > | null = areNativeViewsAvailable
@@ -121,7 +127,7 @@ const LinkZoomTransitionEnablerNativeView: React.ComponentType<
   : null;
 export function LinkZoomTransitionEnabler(props: {
   zoomTransitionSourceIdentifier: string;
-  preventInteractiveDismissal?: boolean;
+  dismissalBoundsRect?: DismissalBoundsRect | null;
 }) {
   if (!LinkZoomTransitionEnablerNativeView) {
     return null;
